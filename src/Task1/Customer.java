@@ -39,7 +39,7 @@ public class Customer {
     public void printPurchaseHistory(){
         for (Bill purchase : purchaseHistory){
             for (Product item : purchase.getProducts()) {
-                System.out.println(item.getName());
+                System.out.println("- " + item.getName());
             }
         }
     }

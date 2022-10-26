@@ -37,16 +37,5 @@ public class Seller {
         this.bill = bill;
     }
 
-    public void sell (Customer customer){
-        customer.setMoney(customer.getMoney() - bill.getSum());
-        this.setMoney(this.getMoney() + bill.getSum());
-        if (customer.getPurchaseHistory() != null){             //change to optional
-            customer.getPurchaseHistory().add(this.getBill());
-        }
-        else {
-            ArrayList<Bill> bills = new ArrayList<>();
-            bills.add(this.getBill());
-            customer.setPurchaseHistory(bills);
-        }
-    }
+
 }
