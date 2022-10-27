@@ -7,6 +7,7 @@ import Task1.Seller;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -90,6 +91,7 @@ public class Storage {
 
     public void filterByPrice(double price){
         this.setSortedProducts(this.getAllProducts().stream()
+                .distinct()
                 .filter(o -> o.getPrice() >= price)
                 .collect(Collectors.toList()));
     }
@@ -99,6 +101,18 @@ public class Storage {
                 .mapToDouble(Product::getPrice)
                 .average()
                 .orElse(Double.NaN);
+    }
+
+    public void mostPopular(){
+        allProducts.stream()
+                .collect(Collectors.groupingBy( // creating an intermediate Map<Integer, Long>
+                        Product::getName,            // map's key
+                        Collectors.counting()       // value
+                ))
+                .entrySet().stream()               // creating a stream over the map's entries
+                .max(Map.Entry.comparingByValue()) // picking the entry with the highest value -> result: Optional<Map.Entry<Integer, Long>>
+                .map(Map.Entry::getKey)            // transforming the optional result Optional<Integer>
+                .ifPresent(System.out::println);   // printing the result if optional is not empty
     }
 
 }

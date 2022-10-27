@@ -42,6 +42,7 @@ public class Task1 {
         Product pepsi = new Product("Pepsi", 28.80);
         newProducts.add(cola);
         newProducts.add(pepsi);
+        newProducts.add(pepsi);
         atb.addProducts(newProducts);
         atb.printStorageProducts();
 
@@ -54,5 +55,7 @@ public class Task1 {
         System.out.println();
 
         System.out.println("Customer's amount of Snickers: " + andriy.itemAmount("Snickers"));
+
+        atb.mostPopular();
     }
 }
