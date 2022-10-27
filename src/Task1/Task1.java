@@ -2,7 +2,6 @@ package Task1;
 
 import Task2.PriceException;
 import Task2.Storage;
-import Task3.Sort;
 
 import java.util.ArrayList;
 
@@ -24,9 +23,10 @@ public class Task1 {
         ArrayList<Product> andriyProducts = new ArrayList<Product>();
         andriyProducts.add(snickers);
         andriyProducts.add(mars);
-        Bill bill = new Bill(andriyProducts);
-        Seller anton = new Seller("Anton", bill);
+
         Customer andriy = new Customer("Andriy", 125);
+        Bill bill = new Bill(andriyProducts, 25, andriy);
+        Seller anton = new Seller("Anton", bill);
 
         System.out.println("Customer money before purchase: " + andriy.getMoney());
         atb.sell(andriy, anton, bill);
@@ -56,6 +56,9 @@ public class Task1 {
 
         System.out.println("Customer's amount of Snickers: " + andriy.itemAmount("Snickers"));
 
+        System.out.println("Most popular shop product: ");
         atb.mostPopular();
+
+        System.out.println("Customer expenses between 24 and 26: " + andriy.customerExpensesByDate(24, 26));
     }
 }

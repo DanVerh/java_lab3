@@ -9,6 +9,7 @@ public class Customer {
     private List<Bill> purchaseHistory = new ArrayList<>();
     private double money;
 
+
     public Customer(String name, double money) {
         this.name = name;
         this.money = money;
@@ -56,5 +57,18 @@ public class Customer {
          return (int) productName.stream()
                 .filter(o -> o == name)
                  .count();
+    }
+
+    public double customerExpensesByDate(int startDate, int endDate){
+        List<Bill> bills = new ArrayList<Bill>();
+        for (Bill bill : purchaseHistory){
+            if (bill.getDate() >= startDate && bill.getDate() <= endDate){
+                bills.add(bill);
+            }
+        }
+        return bills.stream()
+                .filter(o -> o.getCustomer().equals(this))
+                .mapToDouble(o -> o.getSum())
+                .sum();
     }
 }
