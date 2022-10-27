@@ -1,7 +1,8 @@
-package Task1;
+package Task1and3;
 
-import Task2.PriceException;
-import Task2.Storage;
+import Service.Service;
+import Task2and3.PriceException;
+import Task2and3.Storage;
 
 import java.util.ArrayList;
 
@@ -60,5 +61,10 @@ public class Task1 {
         atb.mostPopular();
 
         System.out.println("Customer expenses between 24 and 26: " + andriy.customerExpensesByDate(24, 26));
+
+        ArrayList<Bill> allBills = new ArrayList<Bill>();
+        allBills.add(bill);
+        Service income = new Service(allBills, 25);
+        System.out.println(income.incomeByDate());
     }
 }

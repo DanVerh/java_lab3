@@ -1,4 +1,4 @@
-package Task2;
+package Task2and3;
 
 public class PriceException extends Exception{
     public PriceException(){

@@ -1,9 +1,9 @@
-package Task2;
+package Task2and3;
 
-import Task1.Bill;
-import Task1.Customer;
-import Task1.Product;
-import Task1.Seller;
+import Task1and3.Bill;
+import Task1and3.Customer;
+import Task1and3.Product;
+import Task1and3.Seller;
 
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class Storage {
     private List<Product> allProducts = new ArrayList<>();
     private List<Product> sortedProducts = new ArrayList<>();
+
 
     public Storage(List<Product> allProducts) {
         this.allProducts = allProducts;

@@ -1,8 +1,7 @@
-package Task1;
+package Task1and3;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Customer {
     private String name;

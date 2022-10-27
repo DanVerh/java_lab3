@@ -1,6 +1,4 @@
-package Task1;
-
-import java.util.ArrayList;
+package Task1and3;
 
 public class Seller {
     private String name;
