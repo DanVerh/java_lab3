@@ -5,12 +5,29 @@ import Task1.Customer;
 import Task1.Product;
 import Task1.Seller;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class Storage {
-    public ArrayList<Product> allProducts;
+    private List<Product> allProducts = new ArrayList<>();
 
-    public void getAllProducts () {
+    public Storage(List<Product> allProducts) {
+        this.allProducts = allProducts;
+    }
+
+    public void setAllProducts(List<Product> allProducts) {
+        this.allProducts = allProducts;
+    }
+
+    public void setSortedProducts(List<Product> sortedProducts) {
+        this.allProducts = null;
+    }
+
+    public List<Product> getAllProducts() {
+        return allProducts;
+    }
+
+    public void printStorageProducts () {
         System.out.println("All products in the shop:");
         for (Product item : allProducts) {
             System.out.println("- " + item.getName());
@@ -18,8 +35,12 @@ public class Storage {
         System.out.println();
     }
 
-    public Storage(ArrayList<Product> allProducts) {
-        this.allProducts = allProducts;
+    public void printSortedProducts () {
+        System.out.println("Sorted products in the shop:");
+        for (Product item : allProducts) {
+            System.out.println("- " + item.getName());
+        }
+        System.out.println();
     }
 
     private boolean validate(ArrayList<Product> newProducts) throws PriceException{

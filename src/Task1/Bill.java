@@ -1,19 +1,20 @@
 package Task1;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class Bill {
-    private ArrayList<Product> products;
+    private List<Product> products = new ArrayList<>();
 
-    public Bill(ArrayList<Product> products) {
+    public Bill(List<Product> products) {
         this.products = products;
     }
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 

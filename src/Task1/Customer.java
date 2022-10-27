@@ -1,10 +1,11 @@
 package Task1;
 
+import java.util.List;
 import java.util.ArrayList;
 
 public class Customer {
     private String name;
-    private ArrayList<Bill> purchaseHistory;
+    private List<Bill> purchaseHistory = new ArrayList<>();
     private double money;
 
     public Customer(String name, double money) {
@@ -20,11 +21,11 @@ public class Customer {
         this.name = name;
     }
 
-    public ArrayList<Bill> getPurchaseHistory() {
+    public List<Bill> getPurchaseHistory() {
         return purchaseHistory;
     }
 
-    public void setPurchaseHistory(ArrayList<Bill> purchaseHistory) {
+    public void setPurchaseHistory(List<Bill> purchaseHistory) {
         this.purchaseHistory = purchaseHistory;
     }
 

@@ -2,6 +2,7 @@ package Task1;
 
 import Task2.PriceException;
 import Task2.Storage;
+import Task3.Sort;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,7 @@ public class Task1 {
         shopProducts.add(twix);
 
         Storage atb = new Storage(shopProducts);
-        atb.getAllProducts();
+        atb.printStorageProducts();
 
         ArrayList<Product> andriyProducts = new ArrayList<Product>();
         andriyProducts.add(snickers);
@@ -33,15 +34,20 @@ public class Task1 {
         System.out.println("Customer purchase history: ");
         andriy.printPurchaseHistory();
         System.out.println("Things left in storage: ");
-        atb.getAllProducts();
-
-        System.out.println();
+        atb.printStorageProducts();
 
         ArrayList<Product> newProducts = new ArrayList<Product>();
-        Product cola = new Product("Cola", 21.50);
-        Product pepsi = new Product("Pepsi", -19.80);
+        Product cola = new Product("Cola", 29.50);
+        Product pepsi = new Product("Pepsi", 28.80);
         newProducts.add(cola);
         newProducts.add(pepsi);
         atb.addProducts(newProducts);
+        atb.printStorageProducts();
+
+        Sort sort = new Sort(atb);
+        sort.sortProductName();
+        atb.printStorageProducts();
+        sort.filterByPrice(25);
+        atb.printStorageProducts();
     }
 }
