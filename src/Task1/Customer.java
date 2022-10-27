@@ -2,6 +2,7 @@ package Task1;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Customer {
     private String name;
@@ -43,5 +44,17 @@ public class Customer {
                 System.out.println("- " + item.getName());
             }
         }
+    }
+
+    public int itemAmount(String name){
+        List<String> productName = new ArrayList<>();
+        for(Bill bill : purchaseHistory){
+            for(Product product : bill.getProducts()){
+                productName.add(product.getName());
+            }
+        }
+         return (int) productName.stream()
+                .filter(o -> o == name)
+                 .count();
     }
 }

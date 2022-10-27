@@ -5,26 +5,34 @@ import Task1.Customer;
 import Task1.Product;
 import Task1.Seller;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Storage {
     private List<Product> allProducts = new ArrayList<>();
+    private List<Product> sortedProducts = new ArrayList<>();
 
     public Storage(List<Product> allProducts) {
         this.allProducts = allProducts;
+        this.sortedProducts = null;
+    }
+
+    public List<Product> getAllProducts() {
+        return allProducts;
     }
 
     public void setAllProducts(List<Product> allProducts) {
         this.allProducts = allProducts;
     }
 
-    public void setSortedProducts(List<Product> sortedProducts) {
-        this.allProducts = null;
+    public List<Product> getSortedProducts() {
+        return sortedProducts;
     }
 
-    public List<Product> getAllProducts() {
-        return allProducts;
+    public void setSortedProducts(List<Product> sortedProducts) {
+        this.sortedProducts = sortedProducts;
     }
 
     public void printStorageProducts () {
@@ -37,7 +45,7 @@ public class Storage {
 
     public void printSortedProducts () {
         System.out.println("Sorted products in the shop:");
-        for (Product item : allProducts) {
+        for (Product item : sortedProducts) {
             System.out.println("- " + item.getName());
         }
         System.out.println();
@@ -69,7 +77,28 @@ public class Storage {
             bills.add(seller.getBill());
             customer.setPurchaseHistory(bills);
         }
-        this.allProducts.removeAll(bill.getProducts());
+        for (Product product : bill.getProducts()) {
+            this.allProducts.remove(product);
+        }
+    }
+
+    public void sortProductName() {
+        this.setSortedProducts(( this.getAllProducts().stream()
+                .sorted(Comparator.comparing(Product::getName))
+                .collect(Collectors.toList())));
+    }
+
+    public void filterByPrice(double price){
+        this.setSortedProducts(this.getAllProducts().stream()
+                .filter(o -> o.getPrice() >= price)
+                .collect(Collectors.toList()));
+    }
+
+    public double averagePrice(){
+        return this.getAllProducts().stream()
+                .mapToDouble(Product::getPrice)
+                .average()
+                .orElse(Double.NaN);
     }
 
 }

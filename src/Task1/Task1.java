@@ -16,6 +16,7 @@ public class Task1 {
         shopProducts.add(snickers);
         shopProducts.add(mars);
         shopProducts.add(twix);
+        shopProducts.add(snickers);
 
         Storage atb = new Storage(shopProducts);
         atb.printStorageProducts();
@@ -44,10 +45,14 @@ public class Task1 {
         atb.addProducts(newProducts);
         atb.printStorageProducts();
 
-        Sort sort = new Sort(atb);
-        sort.sortProductName();
         atb.printStorageProducts();
-        sort.filterByPrice(25);
-        atb.printStorageProducts();
+        atb.sortProductName();
+        atb.printSortedProducts();
+        atb.filterByPrice(25);
+        atb.printSortedProducts();
+        System.out.println("Average price of products in Shop: " + atb.averagePrice());
+        System.out.println();
+
+        System.out.println("Customer's amount of Snickers: " + andriy.itemAmount("Snickers"));
     }
 }

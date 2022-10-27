@@ -22,15 +22,26 @@ public class Sort {
         this.storage = storage;
     }
 
-    public void sortProductName() {
-      storage.setAllProducts( storage.getAllProducts().stream()
-              .sorted(Comparator.comparing(Product::getName))
-              .collect(Collectors.toList()));
-    }
-
-    public void filterByPrice(double price){
-        storage.setSortedProducts(storage.getAllProducts().stream()
-                .filter(o -> o.getPrice() >= price)
-                .collect(Collectors.toList()));
-    }
+//    public void sortProductName() {
+//      storage.setSortedProducts(( storage.getAllProducts().stream()
+//              .sorted(Comparator.comparing(Product::getName))
+//              .collect(Collectors.toList())));
+//    }
+//
+//    public void filterByPrice(double price){
+//        storage.setSortedProducts(storage.getAllProducts().stream()
+//                .filter(o -> o.getPrice() >= price)
+//                .collect(Collectors.toList()));
+//    }
+//
+//    public double averagePrice(){
+////        storage.setSortedProducts(storage.getAllProducts().stream()
+////                .filter(o -> o.getPrice() >= price)
+////                .collect(Collectors.toList()));
+//
+//        return storage.getAllProducts().stream()
+//                .mapToDouble(Product::getPrice)
+//                .average()
+//                .orElse(Double.NaN);
+//    }
 }
